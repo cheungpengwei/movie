@@ -14,7 +14,8 @@ class MeijuttSpider(scrapy.Spider):
         for movie in movies:
             # movie.xpath('./h5/a/text()').extract_first()
             name = movie.xpath('./h5/a/text()').extract()[0]
+            # print(movie, name)
 
             item = MovieItem()
-            item.name = name
+            item['name'] = name
             yield item
